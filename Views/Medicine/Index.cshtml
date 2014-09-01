@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Project_AutoSuggestion_E_AppointmentApp.Models.Medicine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineRate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MedicineId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MedicineId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MedicineId })
+        </td>
+    </tr>
+}
+
+</table>

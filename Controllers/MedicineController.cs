@@ -10,6 +10,15 @@ namespace Project_AutoSuggestion_E_AppointmentApp.Controllers
     public class MedicineController:Controller
     {
        private  AppContext db=new AppContext();
+
+        public ActionResult Index()
+        {
+            
+         
+            return View(db.MedicinEntries.ToList());
+        }
+
+
         [HttpGet]
         public ActionResult Create()
         {
