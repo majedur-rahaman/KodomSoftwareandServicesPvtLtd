@@ -1,0 +1,57 @@
+﻿@model Project_AutoSuggestion_E_AppointmentApp.Models.Article
+
+@{
+    ViewBag.Title = "Article Entry";
+}
+
+<h2>Article Entry</h2>
+
+
+@using (Html.BeginForm("Create", "Article", null, FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Article</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArticleName)
+                @Html.ValidationMessageFor(model => model.ArticleName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleDescription, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArticleDescription)
+                @Html.ValidationMessageFor(model => model.ArticleDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleImage, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="image" id="image" value="Choose an Image" onchange="fileCheck(this);" />
+                @Html.ValidationMessageFor(model => model.ArticleImage)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

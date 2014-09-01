@@ -1,0 +1,71 @@
+﻿@model Project_AutoSuggestion_E_AppointmentApp.Models.Medicine
+
+@{
+    ViewBag.Title = "Medicine Entry";
+}
+
+<h2>Enter Medicine Information</h2>
+
+
+
+@using (Html.BeginForm("Create","Medicine",null,FormMethod.Post,new{enctype="multipart/form-data"})) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicineName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MedicineName)
+                @Html.ValidationMessageFor(model => model.MedicineName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicineDescription, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MedicineDescription)
+                @Html.ValidationMessageFor(model => model.MedicineDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicineType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MedicineType)
+                @Html.ValidationMessageFor(model => model.MedicineType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicineRate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MedicineRate)
+                @Html.ValidationMessageFor(model => model.MedicineRate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+    @*@{
+    <h1>ViewBag.Error="Medicine is succesfully added!"</h1>
+}*@
+
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
