@@ -9,6 +9,23 @@
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
+
+@using  (Html.BeginForm("Index","Doctor",FormMethod.Post))
+{
+    
+    @Html.Label("Enter the Doctor Full or Partial Name")
+    @Html.RadioButton("SearchType", "ByDoctorName",true)
+    @Html.Editor("DoctorName")
+    
+    
+    @Html.Label("Select Doctor")
+    @Html.RadioButton("SearchType", "ByDoctorId",false)
+    @Html.DropDownList("DoctorId",String.Empty)
+    
+    <input type="submit" name="submit" value="Search Doctor Please"/>
+    
+}
+
 <table class="table">
     <tr>
         <th>
