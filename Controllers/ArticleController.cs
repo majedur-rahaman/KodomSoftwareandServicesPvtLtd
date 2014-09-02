@@ -20,6 +20,14 @@ namespace Project_AutoSuggestion_E_AppointmentApp.Controllers
             return View(db.Articles.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string SearchText)
+        {
+            var l = db.Articles.Where(a => a.ArticleName.Contains(SearchText)).ToList();
+            return View(l);
+        }
+        
+
         // GET: /Article/Details/5
         //public ActionResult Details(int? id)
         //{
